@@ -1,0 +1,435 @@
+########################################
+#                                      #
+#        alacritty config              #
+#                                      #
+########################################
+
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
+
+  #Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: "0.9"
+
+
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
+  #scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: "1000"
+
+
+font:
+  normal:
+    # Font family
+    # family: CodeNewRoman Nerd Font
+    # family: RobotoMono Nerd Font
+    # family: Hack
+    family: "JetBrainsMono Nerd Font"
+    # family: UbuntuMono Nerd Font
+    # family: Monofur Nerd Font
+    # family: TerminessTTF Nerd Font
+    # family: Mononoki Nerd Font
+
+    style: Regular
+
+# Bold font face
+  bold:
+    # Font family
+    #
+    # If the bold family is not specified, it will fall back to the
+    # value specified for the normal font.
+    # family: CodeNewRoman Nerd Font
+    # family: RobotoMono Nerd Font
+    # family: Hack
+    family: "JetBrainsMono Nerd Font"
+    # family: UbuntuMono Nerd Font
+    # family: Monofur Nerd Font
+    # family: TerminessTTF Nerd Font
+    # family: Mononoki Nerd Font
+
+    # The `style` can be specified to pick a specific face.
+    style: Bold
+
+  # Italic font face
+  italic:
+    # Font family
+    #
+    # If the italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    # family: CodeNewRoman Nerd Font
+    # family: RobotoMono Nerd Font
+    # family: Hack
+    family: "JetBrainsMono Nerd Font"
+    # family: UbuntuMono Nerd Font
+    # family: Monofuritalic Nerd Font Mono
+    # family: TerminessTTF Nerd Font
+    # family: Mononoki Nerd Font
+
+    # The `style` can be specified to pick a specific face.
+    style: Italic
+
+
+  # Bold italic font face
+  bold_italic:
+    # Font family
+    #
+    # If the bold italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    # family: CodeNewRoman Nerd Font
+    # family: RobotoMono Nerd Font
+    # family: Hack
+    family: "JetBrainsMono Nerd Font"
+    # family: UbuntuMono Nerd Font
+    # family: Monofuritalic Nerd Font Mono
+    # family: TerminessTTF Nerd Font
+    # family: Mononoki Nerd Font
+
+    # The `style` can be specified to pick a specific face.
+    style: Bold Italic
+
+
+
+  # Point size
+  size: 12.0
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 1
+
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+
+#############################
+#  C O L O R S C H E M E S  #
+#############################
+schemes:
+  #wasteland colorscheme
+  wasteland: &wasteland
+    primary:
+      background: '0x3e332f'
+      foreground: '0xaf4925'
+    # Normal colors
+    normal:
+      black:   '0x170f0b'
+      red:     '0xa9340e'
+      green:   '0x196652'
+      yellow:  '0xea7002'
+      blue:    '0x2465b8'
+      magenta: '0x74224f'
+      cyan:    '0x00c7ff'
+      white:   '0xb27d6e'
+    # Bright colors
+    bright:
+      black:   '0x54301e'
+      red:     '0xec9361'
+      green:   '0x3fd0d0'
+      yellow:  '0xdd9655'
+      blue:    '0x009bff'
+      magenta: '0x9f2367'
+      cyan:    '0x22dede'
+      white:   '0xdeaf7f'
+
+
+#quartz colorscheme
+  quartz: &quartz
+    # Default colors
+    primary:
+      background: '0x150e1a'
+      foreground: '0xcec2d7'
+
+    # Normal colors
+    normal:
+      black:   '0x211827'
+      red:     '0x2b2032'
+      green:   '0x3e3048'
+      yellow:  '0xdf1ed4'
+      blue:    '0x79608b'
+      magenta: '0x9b83ad'
+      cyan:    '0xbeafca'
+      white:   '0x9c96a0'
+
+    # Bright colors
+    bright:
+      black:   '0x768e59'
+      red:     '0xc57693'
+      green:   '0xb586d5'
+      yellow:  '0x83a25d'
+      blue:    '0x9b75b4'
+      magenta: '0xe06396'
+      cyan:    '0xba8bd9'
+      white:   '0xdf81a4'
+
+
+#ocean colorscheme
+  ocean: &ocean
+    primary:
+      background: '0x172628'
+      foreground: '0x6d9bc5'
+
+      # Normal colors
+      normal:
+        black:   '0x0f0e12'
+        red:     '0x1a181e'
+        green:   '0x2c2931'
+        yellow:  '0x00dfdf'
+        blue:    '0x645f6f'
+        magenta: '0x898493'
+        cyan:    '0xb3b0b9'
+        white:   '0x13c0d5'
+
+      # Bright colors
+      bright:
+        black:   '0x7cb7a1'
+        red:     '0x2074c7'
+        green:   '0xe0af48'
+        yellow:  '0x3973ab'
+        blue:    '0x6dd3b1'
+        magenta: '0xe3b8cc'
+        cyan:    '0x00e5ff'
+        white:   '0x2586e5'
+
+
+  party: &party
+    primary:
+      background: '0x191a2e'
+      foreground: '0xc4c8be'
+
+    # Normal colors
+    normal:
+      black:   '0x1b1c1a'
+      red:     '0x242422'
+      green:   '0x353632'
+      yellow:  '0x4b4d49'
+      blue:    '0x686a64'
+      magenta: '0x8b8d86'
+      cyan:    '0xb3b6ad'
+      white:   '0x98c649'
+
+
+    # Bright colors
+    bright:
+      black:   '0xeb7cb3'
+      red:     '0x58b1cd'
+      green:   '0xeda3c5'
+      yellow:  '0xc6a9f1'
+      blue:    '0xf971b7'
+      magenta: '0x96b436'
+      cyan:    '0xe463a6'
+      white:   '0x00c8a2'
+  
+   ### Gruvbox dark ###
+  gruvbox: &gruvbox
+    # Default colors
+    primary:
+      # hard contrast: background = '0x1d2021'
+      background: '#282828'
+      # soft contrast: background = '0x32302f'
+      foreground: '#ebdbb2'
+
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+
+### Monokai ###
+  monokai: &monokai
+    # Default colors
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+
+    # Normal colors
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+    # Bright colors
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+  ### Nord ###
+  Nord: &Nord
+    # Default colors
+    primary:
+      background: '#2E3440'
+      foreground: '#D8DEE9'
+
+    # Normal colors
+    normal:
+      black:   '#3B4252'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#E5E9F0'
+
+    # Bright colors
+    bright:
+      black:   '#4C566A'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#ECEFF4'
+
+  Dracula: &dracula
+    primary:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#44475a'
+        background: '#50fa7b'
+      focused_match:
+        foreground: '#44475a'
+        background: '#ffb86c'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#44475a'
+    normal:
+      black:   '#000000'
+      red:     '#ff5555'
+      green:   '#50fa7b'
+      yellow:  '#f1fa8c'
+      blue:    '#bd93f9'
+      magenta: '#ff79c6'
+      cyan:    '#8be9fd'
+      white:   '#bfbfbf'
+    bright:
+      black:   '#4d4d4d'
+      red:     '#ff6e67'
+      green:   '#5af78e'
+      yellow:  '#f4f99d'
+      blue:    '#caa9fa'
+      magenta: '#ff92d0'
+      cyan:    '#9aedfe'
+      white:   '#e6e6e6'
+    dim:
+      black:   '#14151b'
+      red:     '#ff2222'
+      green:   '#1ef956'
+      yellow:  '#ebf85b'
+      blue:    '#4d5b86'
+      magenta: '#ff46b0'
+      cyan:    '#59dffc'
+      white:   '#e6e6d1'
+
+
+
+######################################################################
+## SET THEME: Choose ONE color scheme from those in the above list. ##
+## ###################################################################
+# Available themes are:
+# *wasteland
+# *quartz
+# *ocean
+# *party
+# *gruvbox
+# *monokai
+# *Nord
+# *dracula
+
+colors: *wasteland
+
+
+
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '#ffffff'
+
+
+
+cursor:
+  # Cursor style
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Beam
+
+
+
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,         mods: Control|Shift, action: Paste                       }
+  - { key: C,         mods: Control|Shift, action: Copy                        }
+  - { key: F,         mods: Control,          action: ToggleFullscreen         }
+  - { key: Insert,    mods: Shift,         action: PasteSelection              }
+  - { key: Key0,      mods: Control,       action: ResetFontSize               }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: Paste,     mods: None,          action: Paste                       }
+  - { key: Copy,      mods: None,          action: Copy                        }
+  - { key: L,         mods: Control,       action: ClearLogNotice              }
+  - { key: L,         mods: Control,       chars: "\x0c"                       }
+
+  # Search Mode
+  - { key: Return,                mode: Search,     action: SearchConfirm         }
+  - { key: Escape,                mode: Search,     action: SearchCancel          }
+  - { key: U,      mods: Control, mode: Search,     action: SearchClear           }
+  - { key: Return,                mode: Search,     action: SearchFocusNext       }
+  - { key: Return, mods: Shift,   mode: Search,     action: SearchFocusPrevious   }
+

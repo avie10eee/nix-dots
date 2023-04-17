@@ -6,7 +6,7 @@ nix-env --version
 read NIX
 
 #if nix is installed then continue, else exit the script
-if [ NIX = "*" ]; then do;
+if [ NIX = "*" ]; then
     break;;
 else
     echo "Nix is not installed"

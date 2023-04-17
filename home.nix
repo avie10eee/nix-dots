@@ -4,10 +4,7 @@
 { inputs, lib, config, pkgs, ... }: {
 
   #imports
-  imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-  ];
+  imports = [ ./alacritty.nix ];
 
 
 
