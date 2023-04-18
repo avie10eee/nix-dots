@@ -62,10 +62,6 @@
       enable = true;
     };
 
-    zsh.oh-my-zsh = {
-      enable = true;
-    };
-
     zsh = {
       enable = true;
       shellAliases = {
