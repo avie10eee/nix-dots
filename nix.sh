@@ -6,12 +6,12 @@ nix-env --version
 read NIX
 
 #if nix is installed then continue, else exit the script
-if [ NIX = "*" ]; then
-    break;;
+if [ $NIX = "*" ]; then
+    :
 else
     echo "Nix is not installed"
     echo "Please install nix and try again"
-    exit;;
+    exit
 fi
 
 
@@ -56,6 +56,10 @@ cat <<EOF > ~/.config/nixpkgs/flake.nix
     };
 }
 EOF
+
+#make alacritty config
+mkdir -p ${HOME}/.config/nixpkgs/alacritty
+mv ./alacritty.nix ${HOME}/.config/nixpkgs/alacritty
 
 
 git init && git add .

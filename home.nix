@@ -62,6 +62,11 @@
       enable = true;
     };
 
+    alacritty = {
+      enable = true;
+      settings = lib.attrsets.recursiveUpdate (import ${HOME}/.config/nixpkgs/alacritty/alacritty.nix)
+    };
+
     zsh = {
       enable = true;
       shellAliases = {
@@ -178,6 +183,7 @@
     pkgs.python3
     pkgs.coreutils-full
     pkgs.zoxide
+    pkgs.alacritty
   ];
 
 
