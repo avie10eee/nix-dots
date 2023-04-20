@@ -1,7 +1,4 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, attrsets, ... }: {
 
   #imports
   imports = [ ./alacritty.nix ];
@@ -28,13 +25,14 @@
   };
 
 
-
+  #programs
   programs = {
     git = {
           enable = true;
           includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
           userName = "Geller Software";
           userEmail = "avie10eee@gmail.com";
+          signing.signByDefault = true;
           extraConfig = {
             hub.protocol = "https";
             github.user = "avie10eee";
@@ -159,31 +157,97 @@
     };
   };
 
-
-
-  #vars
-  home.sessionVariables = {
-    EDITOR = "micro";
+  #pipewire
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
+
+  # Environment
+  home.sessionVariables = {
+    EDITOR = "micro";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
 
 
   #packages
   home.packages = [
-    pkgs.unzip
-    pkgs.wget
-    pkgs.vlc
-    pkgs.htop
+    #editors
     pkgs.vscodium
+    pkgs.micro
+
+    #browser
     pkgs.firefox
+
+    #term stuff
     pkgs.tmux
+    pkgs.alacritty
+
+    #term tools
     pkgs.gcc
     pkgs.gnumake
-    pkgs.unstable.cmake
+    pkgs.cmake
     pkgs.python3
     pkgs.coreutils-full
     pkgs.zoxide
-    pkgs.alacritty
+    pkgs.htop
+    pkgs.opendoas
+    pkgs.greetd
+    pkgs.rust
+    pkgs.cargo
+    pkgs.unzip
+    pkgs.wget
+    pkgs.bat
+    pkgs.sed 
+    pkgs.neofetch 
+    pkgs.curl 
+    pkgs.tldr 
+    pkgs.make 
+    pkgs.tree 
+    pkgs.exa 
+    pkgs.acpi 
+    pkgs.cmake 
+    pkgs.ninja-build 
+    pkgs.feh 
+    pkgs.meson
+
+    #visual stuff
+    pkgs.conky
+    pkgs.nitrogen
+    pkgs.dunst
+    pkgs.polkit_gnome
+    pkgs.volumeicon
+    pkgs.pixman
+    pkgs.polybar
+
+    #bluetooth network
+    pkgs.networkmanager
+    pkgs.bluez
+    pkgs.bluez-tools
+    pkgs.blueman
+
+    #keymaps
+    pkgs.sxhkd
+
+    #python
+    pkgs.python3
+    pkgs.pypy3
+    pkgs.python310Packages.pip
+
+    #video player
+    pkgs.vlc
+
+    #pipewire
+    pkgs.pipewire
+    pkgs.wireplumber
+    pkgs.pavucontrol
+    pkgs.easyeffects
+    pkgs.helvum
   ];
 
 
@@ -193,3 +257,5 @@
 
   nix.checkConfig = true;
 }
+
+
