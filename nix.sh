@@ -2,8 +2,8 @@
 
 
 #check if nix is installed
-nix-env --version 
-read NIX
+NIX=$(nix-env --version)
+
 
 #if nix is installed then continue, else exit the script
 if [ $NIX = "*" ]; then
