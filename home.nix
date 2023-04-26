@@ -70,13 +70,17 @@
       shellAliases = {
         ".." = "cd ..";
         ls="exa -l --color=always --group-directories-first";
-        la="exa -al --color=always --group-directories-first";
-        sudo= "doas";
-        cat= "bat";
-        grep= "grep --color=auto";
-        upgrade= "sudo dnf upgrade && nix-env -u";
-        wall= "./.autobg.sh";
-        theme= "bash .tswitch.sh";
+        la="exa -al --color=always --group-directories-first"; # 
+        sudo= "doas"; # adds a sudo replacement
+        cat= "bat"; # makes bat the default for cat
+        grep= "grep --color=auto"; # just adds color to grep
+        upgrade= "sudo dnf upgrade && nix-env -u"; # upgrades your system
+        wall= "./.autobg.sh"; # changes the wallpaper (X11 only)
+        theme= "bash .tswitch.sh"; #changes the alacritty theme
+
+        #git
+        gm= "git merge $(git branch --show-current)"; #merges the current branch to main/master
+        gc= "git commit -m " 
 };
       initExtraFirst = ''
         export TERMINAL="alacritty"
