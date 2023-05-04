@@ -1,15 +1,15 @@
 { inputs, lib, config, pkgs, attrsets, ... }: {
 
   #imports
-  imports = [ ./alacritty.nix ];
+  imports = [ ./alacritty.nix ]; # imports alacritty.nix/ alacritty config
 
 
 
   #nixpkgs config
   nixpkgs = {
     config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfree = true; # allow unfree
+      allowUnfreePredicate = (_: true); # allow unfree
     };
   };
 
@@ -62,15 +62,20 @@
 
     alacritty = {
       enable = true;
-      settings = lib.attrsets.recursiveUpdate (import ${HOME}/.config/nixpkgs/alacritty/alacritty.nix)
+      settings = lib.attrsets.recursiveUpdate (import ${HOME}/.config/nixpkgs/alacritty/alacritty.nix) {
+        include = [{ path = "~/.config/nixpkgs/alacritty/alacritty.nix"; }];
+        extraConfig = {
+          theme = "nord";
+        }
+      }
     };
 
     zsh = {
       enable = true;
       shellAliases = {
-        ".." = "cd ..";
-        ls="exa -l --color=always --group-directories-first";
-        la="exa -al --color=always --group-directories-first"; # 
+        ".." = "cd .."; # cd to parent directory
+        ls="exa -l --color=always --group-directories-first"; # ls with color and icons
+        la="exa -al --color=always --group-directories-first"; # ls -al with color and icons
         sudo= "doas"; # adds a sudo replacement
         cat= "bat"; # makes bat the default for cat
         grep= "grep --color=auto"; # just adds color to grep
@@ -80,8 +85,11 @@
 
         #git
         gm= "git merge $(git branch --show-current)"; #merges the current branch to main/master
-        gc= "git commit -m " 
+        gc= "git commit -am "; #commits with a message
+        gl= "git log --graph --oneline --decorate"; #shows a graph of commits
+
 };
+
       initExtraFirst = ''
         export TERMINAL="alacritty"
         export BROWSER="firefox"
@@ -162,24 +170,24 @@
   };
 
   #pipewire
-  security.rtkit.enable = true;
+  security.rtkit.enable = true; # enable rtkit
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    enable = true; # enable pipewire
+    alsa.enable = true; # enable alsa
+    alsa.support32Bit = true; # support 32 bit
+    pulse.enable = true; # enable pulseaudio
   };
 
 
-  # Environment
+  # Environment variables
   home.sessionVariables = {
-    EDITOR = "micro";
+    EDITOR = "micro"; 
     BROWSER = "firefox";
     TERMINAL = "alacritty";
   };
 
 
-  #packages
+  #packages to install
   home.packages = [
     #editors
     pkgs.vscodium
@@ -239,27 +247,27 @@
     pkgs.sxhkd
 
     #python
-    pkgs.python3
-    pkgs.pypy3
-    pkgs.python310Packages.pip
+    pkgs.python3 #python
+    pkgs.pypy3 #pypy
+    pkgs.python310Packages.pip #pip
 
     #video player
     pkgs.vlc
 
     #pipewire
-    pkgs.pipewire
-    pkgs.wireplumber
-    pkgs.pavucontrol
-    pkgs.easyeffects
-    pkgs.helvum
+    pkgs.pipewire #pipewire
+    pkgs.wireplumber #wireplumber
+    pkgs.pavucontrol #pavucontrol
+    pkgs.easyeffects #easyeffects
+    pkgs.helvum #helvum
   ];
 
 
 
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  systemd.user.startServices = "sd-switch"; # enable sd-switch
 
-  nix.checkConfig = true;
+  nix.checkConfig = true; # check config after switch
 }
 
 

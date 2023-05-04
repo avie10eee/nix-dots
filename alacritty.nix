@@ -232,7 +232,7 @@ schemes:
       cyan:    '0xe463a6'
       white:   '0x00c8a2'
   
-   ### Gruvbox dark ###
+  ### Gruvbox dark ###
   gruvbox: &gruvbox
     # Default colors
     primary:
