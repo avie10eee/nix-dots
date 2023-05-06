@@ -48,7 +48,7 @@
       enable = true;
     };
 
-    firfox = {
+    firefox = {
       enable = true;
     };
 
